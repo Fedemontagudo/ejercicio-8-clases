@@ -82,5 +82,33 @@ const mensajesLuchadores = personajes => personajes
   .filter(personaje => personaje.constructor.name === "Luchador")
   .map(personaje => personaje.mensaje);
 
-console.log(personajesGot[0].serie);
-console.log(personajesGot.map(personaje => personaje.mensaje));
+/* console.log(personajesGot[0].serie);
+console.log(personajesGot.map(personaje => personaje.mensaje)); */
+
+/* const personajesPorTipo = [];
+for (let i in personajesGot) {
+  if (!personajesPorTipo.includes()) {
+    personajesPorTipo.push();
+  }
+} */
+
+/* personajesGot.reduce((arrayPersonajes, personaje) =>
+  !arrayPersonajes.includes(personaje.constructor.name) ?
+  arrayPersonajes.push(personaje.constructor.name) :
+  arrayPersonajes, []) */
+
+console.log(personajesGot.reduce((personajesPorTipo, personaje, i) => {
+  if (i === 0) {
+    personajesPorTipo =
+      [personaje.constructor.name,
+      { tipo: personaje.constructor.name, personajes: [personaje] }];
+  } else {
+    !personajesPorTipo.includes(personaje.constructor.name) ?
+      personajesPorTipo.push(
+        personaje.constructor.name,
+        { tipo: personaje.constructor.name, personajes: [personaje] }) :
+      personajesPorTipo[personajesPorTipo.indexOf(personaje.constructor.name) + 1]
+        .personajes.push(personaje)
+  }
+  return personajesPorTipo;
+}, []).filter(elemento => !(typeof elemento === "string")));
