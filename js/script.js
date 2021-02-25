@@ -58,6 +58,10 @@ class Luchador extends Personaje {
 class Asesor extends Personaje {
   personajeAQuienAsesora; // tiene que ser un luchador, rey, asesor o escudero
   mensaje = "No sé por que, pero creo que voy a morir pronto";
+  constructor(nombrePersonaje, familiaPersonaje, edadPersonaje, estadoPersonaje, personajeAQuienAsesora) {
+    super(nombrePersonaje, familiaPersonaje, edadPersonaje, estadoPersonaje)
+    this.personajeAQuienAsesora = personajeAQuienAsesora
+  }
 }
 
 class Escudero extends Personaje {
@@ -70,5 +74,5 @@ class Escudero extends Personaje {
 const joffreyBaratheon = new Rey("Joffrey Baratheon", "Baratheon", 19, "Vivo", 2);
 const jaimeLannister = new Luchador("Jamie Lannister", "Lannister", 40, "Vivo", "Espada", 4);
 const daenerysTargaryen = new Luchador("Daenerys Targaryen", "Targaryen", 30, "Vivo", "Dragones", 8);
+const tyrionLannister = new Asesor("Tyrion Lannister", "Lannister", 40, "Vivo", joffreyBaratheon)
 
-console.log(daenerysTargaryen);
