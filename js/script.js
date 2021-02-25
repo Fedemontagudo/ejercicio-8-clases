@@ -80,26 +80,11 @@ const joffreyBaratheon = new Rey("Joffrey Baratheon", "Baratheon", 19, "Vivo", 2
 const jaimeLannister = new Luchador("Jamie Lannister", "Lannister", 40, "Vivo", "Espada", 4);
 const daenerysTargaryen = new Luchador("Daenerys Targaryen", "Targaryen", 30, "Vivo", "Dragones", 8);
 const tyrionLannister = new Asesor("Tyrion Lannister", "Lannister", 40, "Vivo", joffreyBaratheon)
-const Bronn = new Escudero("Bronn", "Desconocido/del aguasnegras", 32, "Vivo", /* aquivaJaimeLanniser */)
+const bronn = new Escudero("Bronn", "Desconocido/del aguasnegras", 32, "Vivo", jaimeLannister)
 
 const mensajesLuchadores = personajes => personajes
   .filter(personaje => personaje.constructor.name === "Luchador")
   .map(personaje => personaje.mensaje);
-
-/* console.log(personajesGot[0].serie);
-console.log(personajesGot.map(personaje => personaje.mensaje)); */
-
-/* const personajesPorTipo = [];
-for (let i in personajesGot) {
-  if (!personajesPorTipo.includes()) {
-    personajesPorTipo.push();
-  }
-} */
-
-/* personajesGot.reduce((arrayPersonajes, personaje) =>
-  !arrayPersonajes.includes(personaje.constructor.name) ?
-  arrayPersonajes.push(personaje.constructor.name) :
-  arrayPersonajes, []) */
 
 console.log(personajesGot.reduce((personajesPorTipo, personaje, i) => {
   if (i === 0) {
