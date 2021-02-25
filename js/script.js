@@ -3,7 +3,15 @@ class Personaje {
   familia;
   edad;
   estado;
+
+  constructor() {
+    this.nombre
+
+
+  }
 }
+
+
 
 class Rey extends Personaje {
   anyosDeReinado;
@@ -28,4 +36,6 @@ class Escudero extends Personaje {
 
 }
 
-console.log(Escudero)
+const joffreyBaratheon = new Rey("Joffrey Baratheon",);
+
+console.log(joffreyBaratheon);
