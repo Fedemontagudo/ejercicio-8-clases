@@ -40,10 +40,17 @@ class Escudero extends Personaje {
   personajeAQuienSirve; //tiene que ser un luchador
   gradoDePelotismo; //valor del 1 al 10
   mensaje = "Soy un Loser";
-
+  constructor(nombrePersonaje, familiaPersonaje, edadPersonaje, estadoPersonaje, personajeAQuienSirve) {
+    super(nombrePersonaje, familiaPersonaje, edadPersonaje, estadoPersonaje)
+    this.personajeAQuienSirve = personajeAQuienSirve
+  }
 }
 
 const joffreyBaratheon = new Rey("Joffrey Baratheon", "Baratheon", 19, "Vivo", 2);
+
+
 const TyrionLannister = new Asesor("Tyrion Lannister", "Lannister", 40, "Vivo", joffreyBaratheon)
+const Bronn = new Escudero("Bronn", "Desconocido/del aguasnegras", 32, "Vivo")
 
 console.log(TyrionLannister);
+
