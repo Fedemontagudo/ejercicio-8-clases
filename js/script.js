@@ -70,13 +70,17 @@ class Escudero extends Personaje {
   personajeAQuienSirve; //tiene que ser un luchador
   gradoDePelotismo; //valor del 1 al 10
   mensaje = "Soy un Loser";
-
+  constructor(nombrePersonaje, familiaPersonaje, edadPersonaje, estadoPersonaje, personajeAQuienSirve) {
+    super(nombrePersonaje, familiaPersonaje, edadPersonaje, estadoPersonaje)
+    this.personajeAQuienSirve = personajeAQuienSirve
+  }
 }
 
 const joffreyBaratheon = new Rey("Joffrey Baratheon", "Baratheon", 19, "Vivo", 2);
 const jaimeLannister = new Luchador("Jamie Lannister", "Lannister", 40, "Vivo", "Espada", 4);
 const daenerysTargaryen = new Luchador("Daenerys Targaryen", "Targaryen", 30, "Vivo", "Dragones", 8);
 const tyrionLannister = new Asesor("Tyrion Lannister", "Lannister", 40, "Vivo", joffreyBaratheon)
+const Bronn = new Escudero("Bronn", "Desconocido/del aguasnegras", 32, "Vivo", /* aquivaJaimeLanniser */)
 
 const mensajesLuchadores = personajes => personajes
   .filter(personaje => personaje.constructor.name === "Luchador")
