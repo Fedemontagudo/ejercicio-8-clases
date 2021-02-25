@@ -1,3 +1,4 @@
+const personajesGot = [];
 class Personaje {
   serie = "Juego de Tronos";
   nombre;
@@ -10,6 +11,7 @@ class Personaje {
     this.familia = familiaPersonaje;
     this.edad = edadPersonaje;
     this.estado = estadoPersonaje;
+    personajesGot.push(this);
   }
 }
 
@@ -60,7 +62,7 @@ class Asesor extends Personaje {
   mensaje = "No sé por que, pero creo que voy a morir pronto";
   constructor(nombrePersonaje, familiaPersonaje, edadPersonaje, estadoPersonaje, personajeAQuienAsesora) {
     super(nombrePersonaje, familiaPersonaje, edadPersonaje, estadoPersonaje)
-    this.personajeAQuienAsesora = personajeAQuienAsesora
+    this.personajeAQuienAsesora = personajeAQuienAsesora;
   }
 }
 
@@ -76,3 +78,9 @@ const jaimeLannister = new Luchador("Jamie Lannister", "Lannister", 40, "Vivo", 
 const daenerysTargaryen = new Luchador("Daenerys Targaryen", "Targaryen", 30, "Vivo", "Dragones", 8);
 const tyrionLannister = new Asesor("Tyrion Lannister", "Lannister", 40, "Vivo", joffreyBaratheon)
 
+const mensajesLuchadores = personajes => personajes
+  .filter(personaje => personaje.constructor.name === "Luchador")
+  .map(personaje => personaje.mensaje);
+
+console.log(personajesGot[0].serie);
+console.log(personajesGot.map(personaje => personaje.mensaje));
