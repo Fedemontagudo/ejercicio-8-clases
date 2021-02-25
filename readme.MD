@@ -55,12 +55,3 @@ Saca un resumen por consola con los personajes agrupados por tipo, y dentro de c
     },
     (...etc)
 ]
-About
-No description, website, or topics provided.
-Resources
- Readme
-Releases
-No releases published
-Packages
-No packages published
-© 2021 GitHub, Inc.
