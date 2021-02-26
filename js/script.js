@@ -89,18 +89,23 @@ const mensajesLuchadores = personajes => personajes
   .filter(personaje => personaje.constructor.name === "Luchador")
   .map(personaje => personaje.mensaje);
 
+/* Array.prototype.pushAndReturn = function (elemento) {
+  return [...this, elemento];
+} */
+
 console.log(personajesGot.reduce((personajesPorTipo, personaje, i) => {
   if (i === 0) {
     personajesPorTipo =
       [personaje.constructor.name,
       { tipo: personaje.constructor.name, personajes: [personaje] }];
   } else {
+    /* personajesPorTipo.includes(o some)(elemento => elemento.tipo === ) */
     !personajesPorTipo.includes(personaje.constructor.name) ?
       personajesPorTipo.push(
         personaje.constructor.name,
         { tipo: personaje.constructor.name, personajes: [personaje] }) :
       personajesPorTipo[personajesPorTipo.indexOf(personaje.constructor.name) + 1]
-        .personajes.push(personaje)
+        .personajes.push(personaje)/* .pushAndReturn(personaje).sort((a, b) => a.edad - b.edad) */
   }
   return personajesPorTipo;
 }, []).filter(elemento => !(typeof elemento === "string")));
