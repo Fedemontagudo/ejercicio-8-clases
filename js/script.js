@@ -13,6 +13,10 @@ class Personaje {
     this.estado = estadoPersonaje;
     personajesGot.push(this);
   }
+
+  meMuero() {
+    this.estado = "Muerto";
+  }
 }
 
 class Rey extends Personaje {
@@ -27,33 +31,29 @@ class Rey extends Personaje {
 
 class Luchador extends Personaje {
   ArmaQueUsa;
-  destreza; //valor del 1 al 10
+  destrezaPropiedad; //valor del 1 al 10
   mensaje = "Primero pego y luego pregunto";
-
-  set destreza(destrezaPersonaje) {
-    if (destrezaPersonaje < 1) {
-      this.destreza = 1;
-      console.log("El valor de destreza debe ser entre 1 y 10");
-    } else if (destrezaPersonaje > 10) {
-      this.destreza = 10;
-      console.log("El valor de destreza debe ser entre 1 y 10");
-    } else {
-      this.destreza = destrezaPersonaje;
-    }
-  }
 
   constructor(nombrePersonaje, familiaPersonaje, edadPersonaje, estadoPersonaje, armaPersonaje, destrezaPersonaje) {
     super(nombrePersonaje, familiaPersonaje, edadPersonaje, estadoPersonaje);
     this.ArmaQueUsa = armaPersonaje;
+    this.setDestreza(destrezaPersonaje);
+  }
+
+  setDestreza(destrezaPersonaje) {
     if (destrezaPersonaje < 1) {
-      this.destreza = 1;
+      this.destrezaPropiedad = 1;
       console.log("El valor de destreza debe ser entre 1 y 10");
     } else if (destrezaPersonaje > 10) {
-      this.destreza = 10;
+      this.destrezaPropiedad = 10;
       console.log("El valor de destreza debe ser entre 1 y 10");
     } else {
-      this.destreza = destrezaPersonaje;
+      this.destrezaPropiedad = destrezaPersonaje;
     }
+  }
+
+  set destreza(destrezaPersonaje) {
+    this.setDestreza(destrezaPersonaje);
   }
 }
 
@@ -81,6 +81,9 @@ const jaimeLannister = new Luchador("Jamie Lannister", "Lannister", 40, "Vivo", 
 const daenerysTargaryen = new Luchador("Daenerys Targaryen", "Targaryen", 30, "Vivo", "Dragones", 8);
 const tyrionLannister = new Asesor("Tyrion Lannister", "Lannister", 40, "Vivo", joffreyBaratheon)
 const bronn = new Escudero("Bronn", "Desconocido/del aguasnegras", 32, "Vivo", jaimeLannister)
+
+jaimeLannister.meMuero();
+tyrionLannister.meMuero();
 
 const mensajesLuchadores = personajes => personajes
   .filter(personaje => personaje.constructor.name === "Luchador")
