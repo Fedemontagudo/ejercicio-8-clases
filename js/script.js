@@ -104,9 +104,9 @@ tyrionLannister.meMuero();
 
 const mensajesLuchadores = personajes => personajes
   .filter(personaje => personaje.constructor.name === "Luchador")
-  .map(personaje => personaje.comunicar);
+  .map(personaje => personaje.comunicar());
 
-console.log(mensajesLuchadores)
+console.log(mensajesLuchadores(personajesGot));
 
 /* Array.prototype.pushAndReturn = function (elemento) {
   return [...this, elemento];
