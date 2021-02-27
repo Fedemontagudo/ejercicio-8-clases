@@ -100,17 +100,9 @@ const bronn = new Escudero("Bronn", "Desconocido/del aguasnegras", 32, "Vivo", j
 jaimeLannister.meMuero();
 tyrionLannister.meMuero();
 
-
-
 const mensajesLuchadores = personajes => personajes
   .filter(personaje => personaje.constructor.name === "Luchador")
-  .map(personaje => personaje.comunicar);
-
-console.log(mensajesLuchadores)
-
-/* Array.prototype.pushAndReturn = function (elemento) {
-  return [...this, elemento];
-} */
+  .map(personaje => personaje.comunicar());
 
 console.log(personajesGot.reduce((personajesPorTipo, personaje, i) => {
   if (i === 0) {
@@ -118,13 +110,13 @@ console.log(personajesGot.reduce((personajesPorTipo, personaje, i) => {
       [personaje.constructor.name,
       { tipo: personaje.constructor.name, personajes: [personaje] }];
   } else {
-    /* personajesPorTipo.includes(o some)(elemento => elemento.tipo === ) */
     !personajesPorTipo.includes(personaje.constructor.name) ?
       personajesPorTipo.push(
         personaje.constructor.name,
         { tipo: personaje.constructor.name, personajes: [personaje] }) :
-      personajesPorTipo[personajesPorTipo.indexOf(personaje.constructor.name) + 1]
-        .personajes.push(personaje)/* .pushAndReturn(personaje).sort((a, b) => a.edad - b.edad) */
+      personajesPorTipo[personajesPorTipo.indexOf(personaje.constructor.name) + 1].personajes.push(personaje);
+    personajesPorTipo[personajesPorTipo.indexOf(personaje.constructor.name) + 1].personajes
+      .sort((a, b) => a.edad - b.edad);
   }
   return personajesPorTipo;
-}, []).filter(elemento => !(typeof elemento === "string")));
+}, []).filter(elemento => !(typeof elemento === "string"))[1].personajes[0]);
